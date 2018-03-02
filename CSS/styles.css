@@ -8,6 +8,10 @@
     padding: 12px;
 }
 
+.center{
+  text-align: center;
+}
+
 .grid-child{
     padding: 10px;
 }

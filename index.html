@@ -82,12 +82,18 @@
     <section v-else>
         <div>
             <h1>Cart</h1>
-
+            <br>
+            <div class="center">
+              <button v-on:click.prevent="isShowingCart = false" href="#" type="button" class="button is-info is-outlined" name="button">Return Shopping</button>
+            </div>
+            <br>
+            <br>
             <table v-if="cart.items.length > 0" class="table is-striped">
                 <thead>
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
+                    <th></th>
                     <th>Price</th>
                 </tr>
                 </thead>
@@ -97,16 +103,21 @@
                     <td>{{ item.product.name }}</td>
                     <td>
                         {{ item.quantity }} &nbsp;
-                        <button v-on:click="increaseCartQuantity(item)" :disabled="item.product.inStock == 0" class="button is-info">+</button>
-                        <button v-on:click="decreaseQuantity(item)" class="button is-danger">-</button>
+
+                    </td>
+                    <td>
+                      <button v-on:click="increaseCartQuantity(item)" :disabled="item.product.inStock == 0" class="button is-info" style="margin-bottom: 6px">+</button>
+                      <button v-on:click="decreaseQuantity(item)" class="button is-danger">-</button>
                     </td>
                     <td>{{ item.quantity * item.product.price | currency }}</td>
                 </tr>
 
                 <tr>
+
                     <td class="text-right" colspan="2">
                         <strong>Subtotal</strong>
                     </td>
+                    <td></td>
 
                     <td>{{ cartTotal | currency }}</td>
                 </tr>
@@ -115,6 +126,7 @@
                     <td class="text-right" colspan="2">
                         <strong>Taxes</strong>
                     </td>
+                    <td></td>
 
                     <td>{{ taxAmount | currency }}</td>
                 </tr>
@@ -123,12 +135,14 @@
                     <td class="text-right" colspan="2">
                         <strong>Grand total</strong>
                     </td>
+                    <td></td>
 
                     <td>{{ cartTotal + taxAmount | currency }}</td>
                 </tr>
 
                 <tr>
                     <td colspan="2"></td>
+                    <td></td>
                     <td><button v-on:click="checkout" class="button is-info">Checkout</button></td>
                 </tr>
                 </tbody>
@@ -143,7 +157,7 @@
     <div class="container">
         <div class="content has-text-centered">
             <div>
-                <strong>RSPN</strong> by <a href="https://www.instagram.com/radstlman" target="_blank">Radley Nelson</a>.
+                <strong>Rad Media</strong> by <a href="https://www.instagram.com/radstlman" target="_blank">Radley Nelson</a>.
 
             </div>
 
